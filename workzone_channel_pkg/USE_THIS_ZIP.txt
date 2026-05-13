@@ -1,0 +1,11 @@
+SAP Build Work Zone — Channel Manager — New Content Package
+
+Use this file (NOT dist/btptestproject.zip or resources HTML5 app zip):
+  btpapp.zip
+  (same archive as bwz_cp_pkg.zip)
+
+This ZIP is the SAP sample content package with all sap.package / CDM / artifact IDs shortened to meet the 20-character rule (your UI error was from long IDs like my.company.ns.contentpackage.sample, not file size).
+
+IMPORTANT: The archive must use forward slashes (i18n/...) like SAP's official ZIP. Windows "Compress-Archive" used backslashes and triggered "Invalid file structure". btpapp.zip was rebuilt with POSIX-style paths and explicit i18n/ folder entries — use the file dated after this fix.
+
+Upload: Channel Manager > New Content Package > Select ZIP > btpapp.zip

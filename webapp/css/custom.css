@@ -1,0 +1,18 @@
+/* Subtle polish for Books catalog (Fiori elements) */
+
+/* Stronger list / object header */
+.sapFDynamicPageTitleMainInner .sapMTitle.sapFDynamicPageTitleMainHeading {
+    font-weight: 600;
+    letter-spacing: 0.01rem;
+}
+
+/* Table header emphasis */
+.sapMListTblHeader .sapMText,
+.sapMListTblHeader .sapMLabel {
+    font-weight: 600;
+}
+
+/* Slight row hover depth (Grid / responsive tables) */
+.sapMListTblRow.sapMListTblRowHoverable:hover {
+    background-color: var(--sapList_Hover_Background);
+}
