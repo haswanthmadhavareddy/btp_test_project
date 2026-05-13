@@ -1,0 +1,44 @@
+name: Deploy to SAP BTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install MBT
+        run: npm install -g mbt
+
+      - name: Install CF CLI
+        run: |
+          wget -q -O - "https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key" | sudo apt-key add -
+          echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+          sudo apt-get update
+          sudo apt-get install cf8-cli
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build MTAR
+        run: mbt build
+
+      - name: Login to Cloud Foundry
+        run: |
+          cf api ${{ secrets.CF_API }}
+          cf auth ${{ secrets.CF_USERNAME }} ${{ secrets.CF_PASSWORD }}
+          cf target -o ${{ secrets.CF_ORG }} -s ${{ secrets.CF_SPACE }}
+
+      - name: Deploy MTAR
+        run: cf deploy mta_archives/*.mtar --retries 1
