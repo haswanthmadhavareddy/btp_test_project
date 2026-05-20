@@ -1,0 +1,6 @@
+#Store metainfo properties
+#Wed May 20 15:35:48 UTC 2026
+SAP-MarkedSAP2SAP=SAP_TO_SAP_INTEGRATION
+description=This integration flow retrieves sales quote pricing details from SAP ERP.
+source=SAPSalesCloudVersion2
+target=SAPERP

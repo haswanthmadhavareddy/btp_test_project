@@ -74,11 +74,11 @@ resources:
                 ProxyType: Internet
                 Authentication: NoAuthentication
 
-              - Name: btp_backend_destination
-                URL: https://3cd18aa3trial-dev-my-btp-app-srv.cfapps.us10-001.hana.ondemand.com
-                Type: HTTP
-                ProxyType: Internet
-                Authentication: NoAuthentication
+              # - Name: btp_backend_destination
+              #   URL: https://3cd18aa3trial-dev-my-btp-app-srv.cfapps.us10-001.hana.ondemand.com
+              #   Type: HTTP
+              #   ProxyType: Internet
+              #   Authentication: NoAuthentication
 
   - name: btptestproject-html5-repo-host
     type: org.cloudfoundry.managed-service
